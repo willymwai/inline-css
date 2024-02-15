@@ -16,7 +16,7 @@ module.exports = (remoteUrl, callback) => {
     }
 
     axios.get(remoteUrl, axiosConfig).then(response => {
-        if (response.statusText === 'OK') {
+        if (response.status >= 200 && response.status < 300) {
             return callback(null, response.data);
         }
 
